@@ -2,24 +2,27 @@ var AppContainer = require('app-container'),
     conf = require('app-container-conf'),
     prefix = (conf.get('resources:$apiRoot')||'/api/v1/'),
     odataFile = require('odata-resource-file'),
+    Resource = require('odata-resource'),
     _ = require('lodash'),
     appModule = {
+        File: odataFile.File,
+        Image: odataFile.img({ collection: 'Image', formats: (conf.get('resources:image:formats')||[]) }),
+        FileMeta: require('./FileMeta'),
         appInit: function(app) {
-            appModule.File = odataFile.File;
             appModule.fileResource = odataFile.fileResource({
                 rel: prefix+'file',
                 tmp: 'tmp/'
             },app);
-            appModule.Image = odataFile.img({
-                collection: 'Image',
-                formats:[{
-                    format: 'thumbnail',
-                    transformations:[{
-                        fn: 'cover',
-                        args: [200,200]
-                    }]
-                }]
+
+            appModule.fileMetaResource = new Resource({
+                rel: prefix+'fileMeta',
+                model: appModule.FileMeta
+            }).instanceLink('file',{
+                otherSide: appModule.fileResource,
+                key: '_file'
             });
+            appModule.fileMetaResource.initRouter(app);
+
             appModule.imageResource = odataFile.imgResource({
                 rel: prefix+'image',
                 model: appModule.Image
