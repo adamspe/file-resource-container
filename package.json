@@ -1,0 +1,23 @@
+{
+  "name": "app-container-file",
+  "version": "1.0.0",
+  "description": "adds file/img resources to app",
+  "author": "adamspe@gmail.com",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamspe/app-container-file.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adamspe/app-container-file/issues"
+  },
+  "homepage": "https://github.com/adamspe/app-container-file#readme",
+  "dependencies": {
+    "app-container": "github:adamspe/app-container",
+    "odata-resource-file": "github:adamspe/odata-resource-file"
+  }
+}
