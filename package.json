@@ -18,6 +18,6 @@
   "homepage": "https://github.com/adamspe/app-container-file#readme",
   "dependencies": {
     "app-container": "github:adamspe/app-container",
-    "odata-resource-file": "github:adamspe/odata-resource-file#1.0.0"
+    "odata-resource-file": "github:adamspe/odata-resource-file#1.0.1"
   }
 }
