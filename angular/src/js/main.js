@@ -19,7 +19,4 @@ angular.module('app-container-file',[
 }])
 .service('File',['$appServiceFile',function($appServiceFile){
     return $appServiceFile('file/file/:id');
-}])
-.service('FileMeta',['$appServiceFile',function($appServiceFile){
-    return $appServiceFile('file/fileMeta/:id');
 }]);

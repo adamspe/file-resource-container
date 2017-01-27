@@ -1,6 +1,6 @@
 /*
  * app-container-file
- * Version: 1.0.0 - 2017-01-23
+ * Version: 1.0.0 - 2017-01-27
  */
 
 angular.module('app-container-file',[
@@ -24,9 +24,6 @@ angular.module('app-container-file',[
 }])
 .service('File',['$appServiceFile',function($appServiceFile){
     return $appServiceFile('file/file/:id');
-}])
-.service('FileMeta',['$appServiceFile',function($appServiceFile){
-    return $appServiceFile('file/fileMeta/:id');
 }]);
 
 angular.module('templates-app-container-file', []);
