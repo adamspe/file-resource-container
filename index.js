@@ -1,6 +1,6 @@
 var AppContainer = require('app-container'),
     conf = require('app-container-conf'),
-    prefix = (conf.get('resources:$apiRoot')||'/api/v1/')+'file/',
+    prefix = (conf.get('resources:$apiRoot')||'/api/v1/')+'fs/',
     odataFile = require('odata-resource-file'),
     Resource = require('odata-resource'),
     _ = require('lodash'),
@@ -10,7 +10,7 @@ var AppContainer = require('app-container'),
         appInit: function(app) {
             var file = appModule.fileResource = odataFile.fileResource({
                 rel: prefix+'file',
-                tmp: 'tmp/'
+                tmp: conf.get('tmp')
             },app);
             function addMeta(superFunc) {
                 return function(req,res){
