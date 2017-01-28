@@ -32,7 +32,7 @@ angular.module('app-container-file',[
     var TYPE_MAP = {
         'application/pdf': 'fa-file-pdf-o',
         'application/msword': 'fa-file-word-o',
-        'application/zip': 'file-archive-o'
+        'application/zip': 'fa-file-archive-o'
     },
     TYPE_EXP = {
         'fa-file-text-o': /^text\//,
@@ -59,9 +59,9 @@ angular.module('app-container-file',[
         restrict: 'C',
         template: '<a ng-href="{{f._links.download}}" '+
             'title="{{f.filename}}" alt="{{f.filename}}">'+
-            '<i class="fa {{f | faFileTypeClass}}" aria-hidden="true"></i>'+
+            '<i class="fa {{f | faFileTypeClass}}" aria-hidden="true"></i> '+
             '{{f.filename}}'+
-            '</a> ({{f | fileSize}}) Uploaded: {{f.uploadDate | date:\'medium\'}}',
+            '</a> {{f | fileSize}} (Uploaded: {{f.uploadDate | date:\'medium\'}})',
         scope: {
             f: '=file'
         }
