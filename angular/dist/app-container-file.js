@@ -1,6 +1,6 @@
 /*
  * app-container-file
- * Version: 1.0.0 - 2017-01-28
+ * Version: 1.0.0 - 2017-06-16
  */
 
 angular.module('app-container-file',[
@@ -61,12 +61,12 @@ angular.module('app-container-file',[
 })
 .directive('fileInfo',[function(){
     return {
-        restrict: 'C',
-        template: '<a ng-href="{{f._links.download}}" '+
+        restrict: 'EC',
+        template: '<a class="file-info-link" ng-href="{{f._links.download}}" '+
             'title="{{f.filename}}" alt="{{f.filename}}">'+
             '<i class="fa {{f | faFileTypeClass}}" aria-hidden="true"></i> '+
             '{{f.filename}}'+
-            '</a> {{f | fileSize}} (Uploaded: {{f.uploadDate | date:\'medium\'}})',
+            '</a> <span class="file-info-details">{{f | fileSize}} (Uploaded: {{f.uploadDate | date:\'medium\'}})</span>',
         scope: {
             f: '=file'
         }
